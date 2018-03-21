@@ -31,7 +31,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     mysqli_close($link);
 } else{
     // Check existence of id parameter
-    if(empty(trim($_GET["id"]))){
+    if(trim($_GET["id"])){
         // URL doesn't contain id parameter. Redirect to error page
         header("location: error.php");
         exit();
