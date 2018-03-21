@@ -72,7 +72,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     mysqli_close($link);
 } else{
     // Check existence of id parameter before processing further
-    if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
+    if(isset($_GET["id"])){
         // Get URL parameter
         $id =  trim($_GET["id"]);
         
