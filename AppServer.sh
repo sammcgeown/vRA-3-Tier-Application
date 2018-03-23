@@ -13,6 +13,7 @@
 /usr/bin/sed -i "s@DBUser@$demo_app_mysql_user@" /var/www/html/config.php
 /usr/bin/sed -i "s@DBPassword@$demo_app_mysql_password@" /var/www/html/config.php
 /usr/bin/sed -i "s@DBServer@$demo_app_mysql_server@" /var/www/html/config.php
+/usr/bin/sed -i "s@HOSTNAME@$hostname@" /var/www/html/index.php
 /usr/bin/wget -O /tmp/employees.sql https://raw.githubusercontent.com/sammcgeown/vRA-3-Tier-Application/master/app/employees.sql
 /usr/bin/mysql -u "$demo_app_mysql_user" -p"$demo_app_mysql_password" demo -h $demo_app_mysql_server < /tmp/employees.sql
 # Configure and start Apache

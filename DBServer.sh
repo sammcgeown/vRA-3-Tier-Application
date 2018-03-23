@@ -14,8 +14,6 @@ mysql_user_password=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head 
 # Add the app user and database
 /usr/bin/mysql -u root -p"$mysql_root_password" -e "CREATE DATABASE $mysql_app_database;"
 /usr/bin/mysql -u root -p"$mysql_root_password" -e "GRANT ALL PRIVILEGES ON $mysql_app_database.* TO '$mysql_user_name'@'%' IDENTIFIED BY '$mysql_user_password';"
-#mysql -u root -p"$mysql_root_password" -e "CREATE USER 'demouser'@'%' IDENTIFIED BY '$mysql_user_password';"
-#mysql -u root -p"$mysql_root_password" -e "GRANT ALL PRIVILEGES ON $mysql_app_database.* TO '$mysql_user_name'@'%';"
 # Flush privileges
 /usr/bin/mysql -u root -p"$mysql_root_password" -e "FLUSH PRIVILEGES"
 # Enable remote connections
