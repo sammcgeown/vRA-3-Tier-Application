@@ -15,7 +15,7 @@
 /usr/bin/sed -i "s@DBServer@$demo_app_mysql_server@" /var/www/html/config.php
 /usr/bin/sed -i "s@HOSTNAME@$hostname@" /var/www/html/index.php
 /usr/bin/wget -O /tmp/employees.sql https://raw.githubusercontent.com/sammcgeown/vRA-3-Tier-Application/master/app/employees.sql
-/usr/bin/mysql -u "$demo_app_mysql_user" -p"$demo_app_mysql_password" demo -h $demo_app_mysql_server < /tmp/employees.sql
+/usr/bin/mysql -u "$demo_app_mysql_user" -p"$demo_app_mysql_password" $demo_app_mysql_database -h $demo_app_mysql_server < /tmp/employees.sql
 # Configure and start Apache
 /usr/bin/sed -i "/^<Directory \"\/var\/www\/html\">/,/^<\/Directory>/{s/AllowOverride None/AllowOverride All/g}" /etc/httpd/conf/httpd.conf
 /usr/bin/sed -i "s@Listen 80@Listen 8080@" /etc/httpd/conf/httpd.conf
